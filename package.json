@@ -1,0 +1,29 @@
+{
+  "name": "nodeblog",
+  "version": "1.0.0",
+  "description": "a blog system built by node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/shixinke/node-blog.git"
+  },
+  "keywords": [
+    "node",
+    "blog",
+    "node.js",
+    "blog"
+  ],
+  "author": "shixinke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shixinke/node-blog/issues"
+  },
+  "homepage": "https://github.com/shixinke/node-blog#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0"
+  }
+}
