@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html class="login-bg">
+<head>
+    <title>管理账号申请</title>
+
+    {{> head}}
+    <!-- this page specific styles -->
+    <link rel="stylesheet" href="/static/css/compiled/signup.css" type="text/css" media="screen" />
+</head>
+<body>
+<div class="header">
+    <a href="/console/index">
+        <img src="/static/img/logo.png" class="logo" />
+    </a>
+</div>
+<div class="row-fluid login-wrapper">
+    <div class="box">
+        <div class="content-wrap">
+            <form action="/console/register" method="post" id="register-form">
+                <h6>账号申请</h6>
+                <input class="span12" type="text" placeholder="账号" name="account" required="required" title="请输入账号"/>
+                <input class="span12" type="password" id="password" placeholder="密码" name="password" required="required" title="请输入密码"/>
+                <input class="span12" type="password" id="confirmPassword" placeholder="确认密码" name="confirmPassword" required="true" equalTo="#password" title="两次输入密码不一致"/>
+                <input class="span12" type="text" placeholder="邮箱" name="email" required="true" email="true" title="请输入合法的邮箱"/>
+                <div class="action">
+                    <button type="submit" class="btn-glow primary signup" >申请</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="span4 already">
+        <p>已经有账号？</p>
+        <a href="/console/login">登录</a>
+    </div>
+</div>
+
+<!-- scripts -->
+{{> foot}}
+
+<script type="text/javascript">
+    require(['pages/console/register/register'], function(register){
+        register.init();
+    });
+</script>
+</body>
+</html>

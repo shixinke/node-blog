@@ -1,0 +1,65 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/static/css/compiled/personal-info.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/static/js/libs/webuploader/0.1.5/webuploader.css" type="text/css" media="screen" />
+{{/section}}
+
+<!-- settings changer -->
+
+<div class="wide-content">
+    <div class="container-fluid">
+        <div class="settings-wrapper" id="pad-wrapper">
+            <form action="" method="post" enctype="multipart/form-data" id="profile-form">
+                <!-- avatar column -->
+                <div class="span3 avatar-box">
+                    <div class="personal-image">
+                        <input type="hidden" id="hidden-img-file" name="avatar">
+                        <img src="/static/img/personal-info.png" class="avatar img-circle" id="avatar-img"/>
+                        <p>上传一张新头像</p>
+
+                        <div class="btns" data-name="avatar" data-action="/console/profile/avatar">
+                            <button id="filePicker" class="btn-glow primary" ><i class="icon-upload-alt"></i>上传</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- edit form column -->
+                <div class="span7 personal-info">
+                    <div class="alert alert-info">
+                        <i class="icon-lightbulb"></i>
+                        请慎重修改个人信息，如果修改失败，请联系管理员
+                        <br />
+                    </div>
+                    <h5 class="personal-title">个人信息</h5>
+
+                    <div class="field-box">
+                        <label>账号:</label>
+                        <input class="span5 inline-input" type="text" value="{{info.account}}"  readonly="readonly"/>
+                    </div>
+                    <div class="field-box">
+                        <label>昵称:</label>
+                        <input class="span5 inline-input" type="text" value="{{info.nickname}}" required title="请输入昵称"/>
+                    </div>
+                    <div class="field-box">
+                        <label>邮箱:</label>
+                        <input class="span5 inline-input" type="text" value="{{info.email}}" name="email" required email title="请输入邮箱"/>
+                    </div>
+
+                    <div class="span6 field-box actions">
+                        <input type="submit" class="btn-glow primary" value="保存" />
+                        <span></span>
+                        <input type="reset" value="取消" class="reset" />
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+{{#section 'script'}}
+<script type="text/javascript">
+    require(['pages/console/profile/profile'], function(profile){
+        profile.init();
+    })
+</script>
+{{/section}}

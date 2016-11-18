@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html class="login-bg">
+<head>
+    <title>{{title}}</title>
+
+    {{> head}}
+    <!-- this page specific styles -->
+    <link rel="stylesheet" href="/static/css/compiled/signin.css" type="text/css" media="screen" />
+</head>
+<body>
+
+
+<!-- background switcher -->
+<div class="bg-switch visible-desktop">
+    <div class="bgs">
+        <a href="#" data-img="landscape.jpg" class="bg active">
+            <img src="/static/img/bgs/landscape.jpg" />
+        </a>
+        <a href="#" data-img="blueish.jpg" class="bg">
+            <img src="/static/img/bgs/blueish.jpg" />
+        </a>
+        <a href="#" data-img="7.jpg" class="bg">
+            <img src="/static/img/bgs/7.jpg" />
+        </a>
+        <a href="#" data-img="8.jpg" class="bg">
+            <img src="/static/img/bgs/8.jpg" />
+        </a>
+        <a href="#" data-img="9.jpg" class="bg">
+            <img src="/static/img/bgs/9.jpg" />
+        </a>
+        <a href="#" data-img="10.jpg" class="bg">
+            <img src="/static/img/bgs/10.jpg" />
+        </a>
+        <a href="#" data-img="11.jpg" class="bg">
+            <img src="/static/img/bgs/11.jpg" />
+        </a>
+    </div>
+</div>
+
+
+<div class="row-fluid login-wrapper">
+    <a href="/console/index">
+        <img class="logo" src="/static/img/logo-white.png" />
+    </a>
+
+    <div class="span4 box">
+        <div class="content-wrap">
+            <form action="/console/login/checkLogin" method="post" id="login-form">
+                <h6>登录</h6>
+                <input class="span12" type="text" placeholder="账号" name="account"/>
+                <input class="span12" type="password" id="password" placeholder="密码" name="password"/>
+                <a href="#" class="forgot">忘记密码?</a>
+                <div class="remember">
+                    <input id="remember-me" type="checkbox" name="remember"/>
+                    <label for="remember-me">记住我</label>
+                </div>
+                <button type="submit" class="btn-glow primary login">登 录</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="span4 no-account">
+        <p>没有账号?</p>
+        <a href="/console/register">申请账号</a>
+    </div>
+</div>
+
+<!-- scripts -->
+{{> foot}}
+
+<!-- pre load bg imgs -->
+<script type="text/javascript">
+    require(['pages/console/login/login'], function(login){
+        login.init();
+    });
+</script>
+
+</body>
+</html>
