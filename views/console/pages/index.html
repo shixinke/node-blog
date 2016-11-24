@@ -1,0 +1,125 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="/static/css/compiled/user-list.css" type="text/css" media="screen" />
+{{/section}}
+<!-- settings changer -->
+<div class="skins-nav">
+    <a href="#" class="skin first_nav selected">
+        <span class="icon"></span><span class="text">默认</span>
+    </a>
+    <a href="#" class="skin second_nav" data-file="/static/css/skins/dark.css">
+        <span class="icon"></span><span class="text">暗色调</span>
+    </a>
+</div>
+
+<div class="container-fluid">
+    <div id="pad-wrapper" class="users-list">
+        <div class="row-fluid header">
+            <h3>页面管理</h3>
+        </div>
+
+        <div class="row-fluid filter-block">
+            <div class="span10">
+                <form action="" method="get">
+                    <a href="/console/pages/add" class="btn-flat success pull-left">
+                        <span>&#43;</span>
+                        添加页面
+                    </a>
+                </form>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="clearfix">
+            &nbsp;
+
+        </div>
+
+        <!-- Users table -->
+        <div class="row-fluid table">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th class="span4 sortable">
+                        <input type="checkbox" id="check-all">
+                    </th>
+                    <th class="span4 sortable">
+                        ID
+                    </th>
+
+                    <th class="span3 sortable">
+                        <span class="line"></span>作者
+                    </th>
+                    <th class="span3 sortable">
+                        <span class="line"></span>标题
+                    </th>
+
+                    <th class="span3 sortable">
+                        <span class="line"></span>日期
+                    </th>
+                    <th class="span3 sortable">
+                        <span class="line"></span>评论
+                    </th>
+                    <th class="span3 sortable">
+                        <span class="line"></span>状态
+                    </th>
+                    <th class="span3 sortable">
+                        <span class="line"></span>操作
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- row -->
+                {{#xif "data.count > 0" }}
+                {{#each data.rows}}
+                <tr class="first row-item">
+                    <td>
+                        <input type="checkbox" name="id" class="check-item" value="{{posts_id}}">
+                    </td>
+                    <td>
+                        {{posts_id}}
+                    </td>
+
+                    <td>
+                        {{nickname}}
+                    </td>
+                    <td>
+                        {{title}}
+                    </td>
+
+                    <td>
+                        {{publish_time}}
+                    </td>
+                    <td>
+                        {{comments}}
+                    </td>
+
+                    <td>
+                        {{#eq status 'UNCHECKED'}}未审核{{/eq}}
+                        {{#eq status 'PUBLIC'}}公开{{/eq}}
+                        {{#eq status 'DRAFT'}}草稿{{/eq}}
+                    </td>
+                    <td>
+                        <span class="span2"><a href="/console/pages/edit/{{posts_id}}" title="修改"><i class="icon-pencil"></i></a></span>
+                        <span class="span1"><a href="javascript:;" title="删除" class="ajax-del-btn" data-id="{{posts_id}}" data-action="/console/pages/delete"><i class="icon-trash"></i></a></span>
+                    </td>
+                </tr>
+                {{/each}}
+                {{/xif}}
+                </tbody>
+            </table>
+        </div>
+        <div  class="pagination" id="pager" pageNum="{{page.page}}" pageCount="{{page.pageCount}}" numberOfPages="5">
+
+        </div>
+        <!-- end users table -->
+    </div>
+</div>
+
+{{#section 'script'}}
+<script type="text/javascript">
+    require(['fn'], function(fn){
+        fn.pager();
+        fn.ajaxDel();
+    })
+</script>
+{{/section}}

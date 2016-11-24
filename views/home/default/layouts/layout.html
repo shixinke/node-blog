@@ -1,0 +1,603 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel='stylesheet' id='contact-form-7-css'  href='http://www.wpmomo.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.5.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='bootstrap-css'  href='http://www.wpmomo.com/wp-content/themes/MoMo1.0/css/bootstrap.min.css?ver=4.4.5' type='text/css' media='all' />
+    <link rel='stylesheet' id='wpmomo-css'  href='http://www.wpmomo.com/wp-content/themes/MoMo1.0/style.css?ver=4.4.5' type='text/css' media='all' />
+    <script type='text/javascript' src='http://www.wpmomo.com/wp-includes/js/jquery/jquery.js?ver=1.11.3'></script>
+    <script type='text/javascript' src='http://www.wpmomo.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+    <script type='text/javascript' src='http://www.wpmomo.com/wp-content/themes/MoMo1.0/js/bootstrap.min.js?ver=4.4.5'></script>
+    <script type='text/javascript' src='http://www.wpmomo.com/wp-content/themes/MoMo1.0/js/jquery.qrcode.min.js?ver=4.4.5'></script>
+    <script type='text/javascript' src='http://www.wpmomo.com/wp-content/themes/MoMo1.0/js/jquery.infinitescroll.min.js?ver=4.4.5'></script>
+    <script type='text/javascript' src='http://www.wpmomo.com/wp-content/themes/MoMo1.0/js/manual-trigger.js?ver=4.4.5'></script>
+    <script type='text/javascript' src='http://www.wpmomo.com/wp-content/themes/MoMo1.0/js/wpmomo.js?ver=4.4.5'></script>
+    <link rel='https://api.w.org/' href='http://www.wpmomo.com/wp-json/' />
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.wpmomo.com/xmlrpc.php?rsd" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.wpmomo.com/wp-includes/wlwmanifest.xml" />
+    <link rel="shortcut icon" href="http://www.wpmomo.com/wp-content/themes/MoMo1.0/favicon.ico" title="Favicon" /><meta name="keywords" content="" /><meta name="description" content="" /><meta charset="UTF-8" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-transform " />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if lt IE 8]><script>window.location.href='http://www.wpmomo.com/update-browser.html?referrer='+location.href;</script><![endif]-->
+    <title>MoMo &#45; 因为你，我不孤单</title>
+    <link rel="profile" href="http://gmpg.org/xfn/11" />
+    <link rel="pingback" href="http://www.wpmomo.com/xmlrpc.php" />
+    <link rel="canonical" href="http://www.wpmomo.com/">
+    <script type='text/javascript' src='http://www.wpmomo.com/wp-content/themes/MoMo1.0/js/jquery.placeholder.min.js'></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <![if lt IE 9]>
+    <script src="http://www.wpmomo.com/wp-content/themes/MoMo1.0/js/html5shiv-printshiv.js"></script>
+    <script src="http://www.wpmomo.com/wp-content/themes/MoMo1.0/js/respond.js"></script>
+    <![endif]>
+</head>
+<body class="home blog" >
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" style="width:300px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">登录</h4>
+            </div>
+            <div class="modal-body">
+                <form name="loginform" id="loginform" action="http://www.wpmomo.com/login/" method="post">
+
+                    <p class="login-username">
+                        <input type="text" name="user_login" id="log" class="input" value="" placeholder="用户名 &hellip;" />
+                    </p>
+
+                    <p class="login-password">
+                        <input id="pwd" class="input" type="password" value="" name="user_pass" placeholder="密码 &hellip;"/>
+                    </p>
+
+                    <p class="subab">
+                        <input type="text" class="input" name="subab" id="subab" size="30" tabindex="3" placeholder="验证：请输入计算结果：2+5=? "/>
+                    </p>
+
+                    <input name="aaa" value="2" type="hidden" />
+                    <input name="bbb" value="5" type="hidden" />
+
+                    <p class="login-remember">
+                        <label><input name="rememberme" id="rememberme" value="forever" type="checkbox"> 记住我的登录信息</label>
+                    </p>
+                    <p class="register"><a href="http://www.wpmomo.com/register/">注册</a></p>
+                    <p class="login-submit">
+
+                        <input type="hidden" name="redirect_to" value="/"/>
+                        <input type="hidden" name="csyor_login" value="ok" />
+
+                        <input name="submit" id="wp-submit" class="button-primary" value="登录" type="submit" style="margin-top:0px!important;">
+
+                    </p>
+                </form>
+            </div>
+
+            <div class="modal-footer login">
+                <a href="http://www.wpmomo.com/?connect=qq&action=login&_wpnonce=378542ea4b&redirect=http%3A%2F%2Fwww.wpmomo.com%2F"><div class="loginqq">QQ账号登录</div></a>
+                <a href="http://www.wpmomo.com/?connect=weibo&action=login&_wpnonce=378542ea4b&redirect=http%3A%2F%2Fwww.wpmomo.com%2F"><div class="loginweibo">新浪微博账号登录</div></a>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+{{>header}}
+
+<div id="main" class="container">
+
+    <div class="row">
+
+        <div id="content" class="col-lg-8 col-md-8 col-sm-12 col-xs-12 archive" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+
+            <div id="carousel-1428833481" class="carousel-fade carousel slide" data-ride="carousel"><ol class="carousel-indicators"><li data-target="#carousel-1428833481" data-slide-to="0" class="active"></li> <li data-target="#carousel-1428833481" data-slide-to="1"></li> </ol><div class="carousel-inner"><div class="item active"><a href="http://www.wpmomo.com/momo-1-0/" title="" target="_blank"><img src="http://www.wpmomo.com/wp-content/uploads/2016/01/slide11.png" alt=""></a></div><div class="item"><a href="http://www.wpmomo.com/site-content/" title="网站简介" target="_blank"><img src="http://www.wpmomo.com/wp-content/uploads/2016/01/slide21.png" alt="网站简介"><div class="carousel-caption"><h3>网站简介</h3></div></a></div></div><a class="left carousel-control" href="#carousel-1428833481" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a><a class="right carousel-control" href="#carousel-1428833481" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a></div><!-- #carousel-1428833481 -->
+            <div class="row homepage3" >
+
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 homepage">
+                    <div class="homeimg">
+                        <img style="height:50px;" src="http://www.wpmomo.com/wp-content/uploads/2015/04/breadcrumb1.png">
+                    </div>
+                    <div style="padding:20px;"  class="">
+                        <div style="font-size:18px;color:#000;font-family:microsoft yahei" ><a href="http://www.wpmomo.com/momo-1-0/ " style="color: #000;font-size: 17px;" >MoMo 1.0</a></div>
+                        <div style="font-size: 14px;color: #999;line-height: 20px;margin-top: 5px;">主题介绍</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 homepage">
+                    <div class="homeimg">
+                        <img style="height:50px;" src="http://www.wpmomo.com/wp-content/uploads/2015/04/comment.png">
+                    </div>
+                    <div style="padding:20px;"  class="">
+                        <div style="font-size:18px;color:#000;font-family:microsoft yahei" ><a href="http://www.wpmomo.com/theme-usage/ " style="color: #000;font-size: 17px;" >使用说明</a></div>
+                        <div style="font-size: 14px;color: #999;line-height: 20px;margin-top: 5px;">主题使用说明</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 homepage">
+                    <div class="homeimg">
+                        <img style="height:50px;" src="http://www.wpmomo.com/wp-content/uploads/2015/04/customheader.png">
+                    </div>
+                    <div style="padding:20px;" class="">
+                        <div style="font-size:18px;color:#000;font-family:microsoft yahei" ><a href="http://www.wpmomo.com/about/ " style="color: #000;font-size: 17px;" >关于我</a></div>
+                        <div style="font-size: 14px;color: #999;line-height: 20px;margin-top: 5px;">感谢站长们的选择 </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row note">
+                <div style="font-size:18px;color:#000;font-family:microsoft yahei" ><a href="http://www.wpmomo.com/momo-1-0/ " style="color: #000;font-size: 17px;" >MoMo 1.0</a></div>
+
+                <div style="font-size: 14px;color: #999;line-height: 20px;margin-top: 5px;">MoMo1.0 主题介绍</div>
+
+                <div class="detail"><a href="http://www.wpmomo.com/momo-1-0/ ">查看详情</a></div>
+
+            </div>
+
+
+            <div class="index-tit">
+                <div class="tit">最新文章</div>
+            </div>
+
+            <div class="article-list" role="main">
+
+                <article id="post-887" data-post-id="887" role="article" itemscope itemtype="http://schema.org/Article">
+
+
+
+
+
+                    <div class="">
+
+                        <div class="entry-header page-header">
+
+                            <h3 class="entry-title">
+                                <a href="http://www.wpmomo.com/wp_user.html" rel="bookmark" itemprop="url"><span itemprop="name">[WP 类] WP_User</span></a>						</h3>
+
+                            <div class="entry-meta"><a href="http://www.wpmomo.com/author/nikanaa/" itemprop="author" class="entry-meta-s entry-author">MoMo</a><time class="entry-date entry-meta-s" title="发布于 2016-06-18 15:17:36 最后编辑于 2016-06-18 15:19:58 " datetime="2016-06-18T15:17:36+00:00"  itemprop="datePublished" >2016.6.18</time><span><a href="http://www.wpmomo.com/category/wordpress/wpclass/" rel="category" itemprop="articleSection" class="entry-meta-s cat">WordPress 类</a></span><span class="entry-meta-s">199 次浏览</span><span style="position: absolute; right: 5px; font-size: 15px;"><span class="glyphicon glyphicon-comment theme-color-font" style="top:3px;"></span>
+
+	<a href="http://www.wpmomo.com/wp_user.html#comments" itemprop="discussionUrl" itemscope itemtype="http://schema.org/Comment"><span itemprop="interactionCount" class="theme-color-font">0</span></a></span></div>
+                        </div>
+
+                        <div class="entry-content" itemprop="description" data-no-instant><p>描述 WordPress 的 WP_User 类允许用户获取某一特定用户的属性，角色以及权限。 用法 实例化一个用户，你可以使用构造函数： &lt;?php $users = new WP_Use &#8230;</p>
+                        </div>
+                        <div class="entry-tag phnosee"></div>
+
+                    </div>
+
+
+                </article><!-- #content -->
+
+
+
+
+
+
+
+
+
+                <article id="post-883" data-post-id="883" role="article" itemscope itemtype="http://schema.org/Article">
+
+
+
+
+
+                    <div class="">
+
+                        <div class="entry-header page-header">
+
+                            <h3 class="entry-title">
+                                <a href="http://www.wpmomo.com/wp_logout_url.html" rel="bookmark" itemprop="url"><span itemprop="name">[WP 函数] wp_logout_url 注销登录</span></a>						</h3>
+
+                            <div class="entry-meta"><a href="http://www.wpmomo.com/author/nikanaa/" itemprop="author" class="entry-meta-s entry-author">MoMo</a><time class="entry-date entry-meta-s" title="发布于 2016-05-11 16:32:05 最后编辑于 2016-05-11 16:35:31 " datetime="2016-05-11T16:32:05+00:00"  itemprop="datePublished" >2016.5.11</time><span><a href="http://www.wpmomo.com/category/wordpress/wpfunction/" rel="category" itemprop="articleSection" class="entry-meta-s cat">WordPress 函数</a></span><span class="entry-meta-s">195 次浏览</span><span style="position: absolute; right: 5px; font-size: 15px;"><span class="glyphicon glyphicon-comment theme-color-font" style="top:3px;"></span>
+
+	<a href="http://www.wpmomo.com/wp_logout_url.html#comments" itemprop="discussionUrl" itemscope itemtype="http://schema.org/Comment"><span itemprop="interactionCount" class="theme-color-font">2</span></a></span></div>
+                        </div>
+
+                        <div class="entry-content" itemprop="description" data-no-instant><p>该函数返回注销登录的 URL</p>
+                        </div>
+                        <div class="entry-tag phnosee"></div>
+
+                    </div>
+
+
+                </article><!-- #content -->
+
+
+
+
+
+
+
+
+
+                <article id="post-869" data-post-id="869" role="article" itemscope itemtype="http://schema.org/Article">
+
+
+
+
+
+                    <div class="has_post_thumbnail">
+
+                        <div class="entry-thumbnail"><a href="http://www.wpmomo.com/plugin_api.html" title="插件 API"><img src="http://www.wpmomo.com/wp-content/themes/MoMo1.0/timthumb.php?src=http://www.wpmomo.com/wp-content/uploads/2016/03/wordpress-widget-220x200.png&h=200&w=220&zc=1&q=90" alt="插件 API"></a></div>					<div class="entry-header page-header">
+
+                        <h3 class="entry-title">
+                            <a href="http://www.wpmomo.com/plugin_api.html" rel="bookmark" itemprop="url"><span itemprop="name">插件 API</span></a>						</h3>
+
+                        <div class="entry-meta"><a href="http://www.wpmomo.com/author/nikanaa/" itemprop="author" class="entry-meta-s entry-author">MoMo</a><time class="entry-date entry-meta-s" title="发布于 2016-03-15 11:36:09 最后编辑于 2016-03-16 10:45:44 " datetime="2016-03-15T11:36:09+00:00"  itemprop="datePublished" >2016.3.15</time><span><a href="http://www.wpmomo.com/category/realize/" rel="category" itemprop="articleSection" class="entry-meta-s cat">主题制作</a></span><span itemprop="keywords" class="entry-meta-s"><span class="glyphicon glyphicon-tags" style="top:3px;"></span><a href="http://www.wpmomo.com/tag/%e6%8f%92%e4%bb%b6/" rel="tag">插件</a></span><span class="entry-meta-s">367 次浏览</span><span style="position: absolute; right: 5px; font-size: 15px;"><span class="glyphicon glyphicon-comment theme-color-font" style="top:3px;"></span>
+
+	<a href="http://www.wpmomo.com/plugin_api.html#comments" itemprop="discussionUrl" itemscope itemtype="http://schema.org/Comment"><span itemprop="interactionCount" class="theme-color-font">3</span></a></span></div>
+                    </div>
+
+                        <div class="entry-content" itemprop="description" data-no-instant><p>本文介绍的是一些为 WordPress 插件开发者提供的 API (编程语言接口)，以及如何调用这些接口。</p>
+                        </div>
+                        <div class="entry-tag phnosee"><span class="glyphicon glyphicon-tags theme-color-font" style="margin-right:10px;top:3px;"></span><a href="http://www.wpmomo.com/tag/%e6%8f%92%e4%bb%b6/" rel="tag">插件</a></div>
+
+                    </div>
+
+
+                </article><!-- #content -->
+
+
+
+
+
+
+
+
+
+                <article id="post-858" data-post-id="858" role="article" itemscope itemtype="http://schema.org/Article">
+
+
+
+
+
+                    <div class="has_post_thumbnail">
+
+                        <div class="entry-thumbnail"><a href="http://www.wpmomo.com/a-plugin-example.html" title="一个 WordPress 插件例子"><img src="http://www.wpmomo.com/wp-content/themes/MoMo1.0/timthumb.php?src=http://www.wpmomo.com/wp-content/uploads/2016/03/wordpress-widget-220x200.png&h=200&w=220&zc=1&q=90" alt="一个 WordPress 插件例子"></a></div>					<div class="entry-header page-header">
+
+                        <h3 class="entry-title">
+                            <a href="http://www.wpmomo.com/a-plugin-example.html" rel="bookmark" itemprop="url"><span itemprop="name">一个 WordPress 插件例子</span></a>						</h3>
+
+                        <div class="entry-meta"><a href="http://www.wpmomo.com/author/nikanaa/" itemprop="author" class="entry-meta-s entry-author">MoMo</a><time class="entry-date entry-meta-s" title="发布于 2016-03-15 10:15:51 最后编辑于 2016-03-15 10:16:10 " datetime="2016-03-15T10:15:51+00:00"  itemprop="datePublished" >2016.3.15</time><span><a href="http://www.wpmomo.com/category/realize/" rel="category" itemprop="articleSection" class="entry-meta-s cat">主题制作</a></span><span class="entry-meta-s">287 次浏览</span><span style="position: absolute; right: 5px; font-size: 15px;"><span class="glyphicon glyphicon-comment theme-color-font" style="top:3px;"></span>
+
+	<a href="http://www.wpmomo.com/a-plugin-example.html#comments" itemprop="discussionUrl" itemscope itemtype="http://schema.org/Comment"><span itemprop="interactionCount" class="theme-color-font">1</span></a></span></div>
+                    </div>
+
+                        <div class="entry-content" itemprop="description" data-no-instant><p>WordPress 插件允许你对 WordPress 博客进行修改、自定义和加强。不必修改 WordPress 的核心程序，直接用插件的形式增加功能。</p>
+                        </div>
+                        <div class="entry-tag phnosee"></div>
+
+                    </div>
+
+
+                </article><!-- #content -->
+
+
+
+
+
+
+
+
+
+                <article id="post-774" data-post-id="774" role="article" itemscope itemtype="http://schema.org/Article">
+
+
+
+
+
+                    <div class="">
+
+                        <div class="entry-header page-header">
+
+                            <h3 class="entry-title">
+                                <a href="http://www.wpmomo.com/wp_remote_retrieve_body.html" rel="bookmark" itemprop="url"><span itemprop="name">[WP 函数] wp_remote_retrieve_body</span></a>						</h3>
+
+                            <div class="entry-meta"><a href="http://www.wpmomo.com/author/nikanaa/" itemprop="author" class="entry-meta-s entry-author">MoMo</a><time class="entry-date entry-meta-s" title="发布于 2016-03-02 10:58:49 最后编辑于 2016-03-12 21:23:02 " datetime="2016-03-02T10:58:49+00:00"  itemprop="datePublished" >2016.3.2</time><span><a href="http://www.wpmomo.com/category/wordpress/wpfunction/" rel="category" itemprop="articleSection" class="entry-meta-s cat">WordPress 函数</a></span><span class="entry-meta-s">173 次浏览</span><span style="position: absolute; right: 5px; font-size: 15px;"><span class="glyphicon glyphicon-comment theme-color-font" style="top:3px;"></span>
+
+	<a href="http://www.wpmomo.com/wp_remote_retrieve_body.html#comments" itemprop="discussionUrl" itemscope itemtype="http://schema.org/Comment"><span itemprop="interactionCount" class="theme-color-font">1</span></a></span></div>
+                        </div>
+
+                        <div class="entry-content" itemprop="description" data-no-instant><p>描述 从原始回应信息中获取 body 部分。 用法 &lt;?php $body = wp_remote_retrieve_body($response); ?&gt; 参数 $response  &#8230;</p>
+                        </div>
+                        <div class="entry-tag phnosee"></div>
+
+                    </div>
+
+
+                </article><!-- #content -->
+
+
+
+
+
+
+
+
+
+                <article id="post-768" data-post-id="768" role="article" itemscope itemtype="http://schema.org/Article">
+
+
+
+
+
+                    <div class="">
+
+                        <div class="entry-header page-header">
+
+                            <h3 class="entry-title">
+                                <a href="http://www.wpmomo.com/wp_remote_post.html" rel="bookmark" itemprop="url"><span itemprop="name">[WP 函数] wp_remote_post</span></a>						</h3>
+
+                            <div class="entry-meta"><a href="http://www.wpmomo.com/author/nikanaa/" itemprop="author" class="entry-meta-s entry-author">MoMo</a><time class="entry-date entry-meta-s" title="发布于 2016-03-02 10:35:43 最后编辑于 2016-03-02 10:38:06 " datetime="2016-03-02T10:35:43+00:00"  itemprop="datePublished" >2016.3.2</time><span><a href="http://www.wpmomo.com/category/wordpress/wpfunction/" rel="category" itemprop="articleSection" class="entry-meta-s cat">WordPress 函数</a></span><span class="entry-meta-s">95 次浏览</span><span style="position: absolute; right: 5px; font-size: 15px;"><span class="glyphicon glyphicon-comment theme-color-font" style="top:3px;"></span>
+
+	<a href="http://www.wpmomo.com/wp_remote_post.html#comments" itemprop="discussionUrl" itemscope itemtype="http://schema.org/Comment"><span itemprop="interactionCount" class="theme-color-font">0</span></a></span></div>
+                        </div>
+
+                        <div class="entry-content" itemprop="description" data-no-instant><p>描述 使用 HTTP POST 方法从 URL 获取信息，返回数组形式的结果。返回结果包括 HTTP 头部和内容。 若要使用 HTTP GET 方法，请参考 wp_remote_get()。 用法 &#8230;</p>
+                        </div>
+                        <div class="entry-tag phnosee"></div>
+
+                    </div>
+
+
+                </article><!-- #content -->
+
+
+
+
+
+
+
+
+
+                <article id="post-764" data-post-id="764" role="article" itemscope itemtype="http://schema.org/Article">
+
+
+
+
+
+                    <div class="">
+
+                        <div class="entry-header page-header">
+
+                            <h3 class="entry-title">
+                                <a href="http://www.wpmomo.com/wp_remote_get.html" rel="bookmark" itemprop="url"><span itemprop="name">[WP 函数] wp_remote_get</span></a>						</h3>
+
+                            <div class="entry-meta"><a href="http://www.wpmomo.com/author/nikanaa/" itemprop="author" class="entry-meta-s entry-author">MoMo</a><time class="entry-date entry-meta-s" title="发布于 2016-03-02 09:50:06 最后编辑于 2016-03-02 10:37:55 " datetime="2016-03-02T09:50:06+00:00"  itemprop="datePublished" >2016.3.2</time><span><a href="http://www.wpmomo.com/category/wordpress/wpfunction/" rel="category" itemprop="articleSection" class="entry-meta-s cat">WordPress 函数</a></span><span class="entry-meta-s">123 次浏览</span><span style="position: absolute; right: 5px; font-size: 15px;"><span class="glyphicon glyphicon-comment theme-color-font" style="top:3px;"></span>
+
+	<a href="http://www.wpmomo.com/wp_remote_get.html#comments" itemprop="discussionUrl" itemscope itemtype="http://schema.org/Comment"><span itemprop="interactionCount" class="theme-color-font">0</span></a></span></div>
+                        </div>
+
+                        <div class="entry-content" itemprop="description" data-no-instant><p>描述 使用 HTTP GET 方法获取原始信息， 包含 HTTP 头部和内容。 若想使用 HTTP POST 方法，请参考 wp_remote_post()。 用法 &lt;?php $respo &#8230;</p>
+                        </div>
+                        <div class="entry-tag phnosee"></div>
+
+                    </div>
+
+
+                </article><!-- #content -->
+
+
+
+
+
+
+
+
+
+                <article id="post-635" data-post-id="635" role="article" itemscope itemtype="http://schema.org/Article">
+
+
+
+
+
+                    <div class="">
+
+                        <div class="entry-header page-header">
+
+                            <h3 class="entry-title">
+                                <a href="http://www.wpmomo.com/wp_query.html" rel="bookmark" itemprop="url"><span itemprop="name">[WP 类] WP_Query</span></a>						</h3>
+
+                            <div class="entry-meta"><a href="http://www.wpmomo.com/author/nikanaa/" itemprop="author" class="entry-meta-s entry-author">MoMo</a><time class="entry-date entry-meta-s" title="发布于 2016-02-29 15:23:00 最后编辑于 2016-02-29 15:23:00 " datetime="2016-02-29T15:23:00+00:00"  itemprop="datePublished" >2016.2.29</time><span><a href="http://www.wpmomo.com/category/wordpress/wpclass/" rel="category" itemprop="articleSection" class="entry-meta-s cat">WordPress 类</a></span><span class="entry-meta-s">297 次浏览</span><span style="position: absolute; right: 5px; font-size: 15px;"><span class="glyphicon glyphicon-comment theme-color-font" style="top:3px;"></span>
+
+	<a href="http://www.wpmomo.com/wp_query.html#comments" itemprop="discussionUrl" itemscope itemtype="http://schema.org/Comment"><span itemprop="interactionCount" class="theme-color-font">0</span></a></span></div>
+                        </div>
+
+                        <div class="entry-content" itemprop="description" data-no-instant><p>WP_Query 是 Wordpress 自带的的一个用于处理复杂请求的类（这里的请求的内容不仅包括文章，还可能是页面，用户，分类等其它信息）。</p>
+                        </div>
+                        <div class="entry-tag phnosee"></div>
+
+                    </div>
+
+
+                </article><!-- #content -->
+
+
+
+
+
+
+
+
+
+                <article id="post-756" data-post-id="756" role="article" itemscope itemtype="http://schema.org/Article">
+
+
+
+
+
+                    <div class="">
+
+                        <div class="entry-header page-header">
+
+                            <h3 class="entry-title">
+                                <a href="http://www.wpmomo.com/wp-reset-query.html" rel="bookmark" itemprop="url"><span itemprop="name">[WP 函数] wp_reset_query 重置查询</span></a>						</h3>
+
+                            <div class="entry-meta"><a href="http://www.wpmomo.com/author/nikanaa/" itemprop="author" class="entry-meta-s entry-author">MoMo</a><time class="entry-date entry-meta-s" title="发布于 2016-02-29 10:36:35 最后编辑于 2016-02-29 10:42:51 " datetime="2016-02-29T10:36:35+00:00"  itemprop="datePublished" >2016.2.29</time><span><a href="http://www.wpmomo.com/category/wordpress/wpfunction/" rel="category" itemprop="articleSection" class="entry-meta-s cat">WordPress 函数</a></span><span class="entry-meta-s">175 次浏览</span><span style="position: absolute; right: 5px; font-size: 15px;"><span class="glyphicon glyphicon-comment theme-color-font" style="top:3px;"></span>
+
+	<a href="http://www.wpmomo.com/wp-reset-query.html#comments" itemprop="discussionUrl" itemscope itemtype="http://schema.org/Comment"><span itemprop="interactionCount" class="theme-color-font">0</span></a></span></div>
+                        </div>
+
+                        <div class="entry-content" itemprop="description" data-no-instant><p>描述 wp_reset_query() 使 $wp_query 及全局文章变量还原至初始查询状态。该函数应该在 query_posts() 函数（如果您必须要使用此函数的话）后使用，正如下面的例子 &#8230;</p>
+                        </div>
+                        <div class="entry-tag phnosee"></div>
+
+                    </div>
+
+
+                </article><!-- #content -->
+
+
+
+
+
+
+
+
+
+                <article id="post-739" data-post-id="739" role="article" itemscope itemtype="http://schema.org/Article">
+
+
+
+
+
+                    <div class="has_post_thumbnail">
+
+                        <div class="entry-thumbnail"><a href="http://www.wpmomo.com/wordpress-theme-files.html" title="WordPress 主题文件结构及执行"><img src="http://www.wpmomo.com/wp-content/themes/MoMo1.0/timthumb.php?src=http://www.wpmomo.com/wp-content/uploads/2016/02/theme-1.png&h=200&w=220&zc=1&q=90" alt="WordPress 主题文件结构及执行"></a></div>					<div class="entry-header page-header">
+
+                        <h3 class="entry-title">
+                            <a href="http://www.wpmomo.com/wordpress-theme-files.html" rel="bookmark" itemprop="url"><span itemprop="name">WordPress 主题文件结构及执行</span></a>						</h3>
+
+                        <div class="entry-meta"><a href="http://www.wpmomo.com/author/nikanaa/" itemprop="author" class="entry-meta-s entry-author">MoMo</a><time class="entry-date entry-meta-s" title="发布于 2016-02-26 18:07:11 最后编辑于 2016-03-05 11:15:37 " datetime="2016-02-26T18:07:11+00:00"  itemprop="datePublished" >2016.2.26</time><span><a href="http://www.wpmomo.com/category/realize/" rel="category" itemprop="articleSection" class="entry-meta-s cat">主题制作</a></span><span class="entry-meta-s">752 次浏览</span><span style="position: absolute; right: 5px; font-size: 15px;"><span class="glyphicon glyphicon-comment theme-color-font" style="top:3px;"></span>
+
+	<a href="http://www.wpmomo.com/wordpress-theme-files.html#comments" itemprop="discussionUrl" itemscope itemtype="http://schema.org/Comment"><span itemprop="interactionCount" class="theme-color-font">0</span></a></span></div>
+                    </div>
+
+                        <div class="entry-content" itemprop="description" data-no-instant><p>主题文件构成 打开一个 WordPress 主题文件夹，它可能包括以下文件： 从文件名字我们也可以推断出其大致作用，就这个主题而言，从上至下，它们的作用分别是： css（文件夹）：存放 css 文 &#8230;</p>
+                        </div>
+                        <div class="entry-tag phnosee"></div>
+
+                    </div>
+
+
+                </article><!-- #content -->
+
+
+
+
+
+
+
+
+                <div id="next" style="text-align:center"><a href="http://www.wpmomo.com/?paged=2" title="第 2 页" data-no-instant>加载更多</a></div>
+
+
+
+
+                <script>
+
+
+                    var infinite_scroll = {
+                        behavior:'twitter',
+                        loading: {
+                            img: "http://www.wpmomo.com/wp-content/themes/MoMo1.0/images/ajax-loader.gif",
+                            msgText: "加载更多...",
+                            finishedMsg: "没有更多.."
+                        },
+                        nextSelector:'#next a',
+                        navSelector:"#next a",
+                        itemSelector:"#content article",
+                        contentSelector:"#content .article-list"
+                    };
+                    jQuery(infinite_scroll.contentSelector ).infinitescroll( infinite_scroll, function(){
+                        jQuery('#next a').css("display","inline");
+                        jQuery('#next').insertAfter('#content article:last');
+                    });
+
+
+                </script>
+
+
+
+            </div>
+        </div><!-- #content -->
+
+
+
+
+        <div id="sidebar" class="col-lg-4 col-md-4" style="overflow:hidden;" role="complementary" itemscope itemtype="http://schema.org/WPSideBar">
+
+            <li id="pic-2" class="widget widget_pic">
+                <div class="pic">
+                    <a href="http://www.wpmomo.com"><img src="http://www.wpmomo.com/wp-content/uploads/2016/03/sider.png" title="广告图片11" alt="广告图片11" style="max-width: 100%;"></a>
+                </div>
+            <li id="text-3" class="widget widget_text"><div class="index-tit"><div class="tit">求关注</div></div>			<div class="textwidget">MoMo 1.0</div>
+            </li>
+            <li id="dmengrank-2" class="widget widget_dmengrank"><aside id="accordion-dmengrank-2" class="panel-group"><div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion-dmengrank-2" href="#search-dmengrank-2"><span class="glyphicon glyphicon-search"></span> 搜索次数最多的10个关键词</a></h3></div> <div id="search-dmengrank-2" class="panel-collapse collapse "><li class="list-group-item"><span class="badge" title="150次搜索">150</span> <a href="http://www.wpmomo.com?s=0" title="0">0</a></li><li class="list-group-item"><span class="badge" title="106次搜索">106</span> <a href="http://www.wpmomo.com?s=3" title="3">3</a></li><li class="list-group-item"><span class="badge" title="105次搜索">105</span> <a href="http://www.wpmomo.com?s=缩略图" title="缩略图">缩略图</a></li><li class="list-group-item"><span class="badge" title="85次搜索">85</span> <a href="http://www.wpmomo.com?s=搜索功能不怕被博彩网站刷爆吗" title="搜索功能不怕被博彩网站刷爆吗">搜索功能不怕被博彩网站刷爆吗</a></li><li class="list-group-item"><span class="badge" title="81次搜索">81</span> <a href="http://www.wpmomo.com?s=get_next_post" title="get_next_post">get_next_post</a></li><li class="list-group-item"><span class="badge" title="72次搜索">72</span> <a href="http://www.wpmomo.com?s=和谐词" title="和谐词">和谐词</a></li><li class="list-group-item"><span class="badge" title="71次搜索">71</span> <a href="http://www.wpmomo.com?s=get_temp" title="get_temp">get_temp</a></li><li class="list-group-item"><span class="badge" title="67次搜索">67</span> <a href="http://www.wpmomo.com?s=我" title="我">我</a></li><li class="list-group-item"><span class="badge" title="63次搜索">63</span> <a href="http://www.wpmomo.com?s=1.1" title="1.1">1.1</a></li><li class="list-group-item"><span class="badge" title="56次搜索">56</span> <a href="http://www.wpmomo.com?s=WP_Query" title="WP_Query">WP_Query</a></li></div></div><div class="panel panel-info"><div class="panel-heading"><h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion-dmengrank-2" href="#comment-dmengrank-2"><span class="glyphicon glyphicon-volume-up"></span> 最多人评论的10篇内容</a></h3></div> <div id="comment-dmengrank-2" class="panel-collapse collapse "><li class="list-group-item"><span class="badge" title="122条评论">122</span> <a href="http://www.wpmomo.com/theme/" title="主题介绍">主题介绍</a></li><li class="list-group-item"><span class="badge" title="37条评论">37</span> <a href="http://www.wpmomo.com/theme-usage/" title="使用说明">使用说明</a></li><li class="list-group-item"><span class="badge" title="28条评论">28</span> <a href="http://www.wpmomo.com/about/" title="关于我">关于我</a></li><li class="list-group-item"><span class="badge" title="22条评论">22</span> <a href="http://www.wpmomo.com/menuclick.html" title="解决Bootstrap下拉菜单不可点击">解决Bootstrap下拉菜单不可点击</a></li><li class="list-group-item"><span class="badge" title="17条评论">17</span> <a href="http://www.wpmomo.com/momo-1-0/" title="MoMo 1.0">MoMo 1.0</a></li><li class="list-group-item"><span class="badge" title="13条评论">13</span> <a href="http://www.wpmomo.com/wp_insert_post.html" title="wp_insert_post 插入文章函数">wp_insert_post 插入文章函数</a></li><li class="list-group-item"><span class="badge" title="12条评论">12</span> <a href="http://www.wpmomo.com/fsockopen.html" title="WordPress 使用 fsockopen 函数实现SMTP发信">WordPress 使用 fsockopen 函数实现SMTP发信</a></li><li class="list-group-item"><span class="badge" title="9条评论">9</span> <a href="http://www.wpmomo.com/get_header.html" title="[WordPress函数] get_header 获取头部">[WordPress函数] get_header 获取头部</a></li><li class="list-group-item"><span class="badge" title="9条评论">9</span> <a href="http://www.wpmomo.com/breadcrumb.html" title="面包屑导航">面包屑导航</a></li><li class="list-group-item"><span class="badge" title="9条评论">9</span> <a href="http://www.wpmomo.com/apply_filters.html" title="[WordPress 函数] apply_filters() 应用过滤器">[WordPress 函数] apply_filters() 应用过滤器</a></li></div></div><div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion-dmengrank-2" href="#vote-dmengrank-2"><span class="glyphicon glyphicon-stats"></span> 按投票率排行的10篇内容</a></h3></div> <div id="vote-dmengrank-2" class="panel-collapse collapse "><li class="list-group-item"><span class="badge" title="90人投票">90</span> <a href="http://www.wpmomo.com/theme/" title="主题介绍">主题介绍</a></li><li class="list-group-item"><span class="badge" title="53人投票">53</span> <a href="http://www.wpmomo.com/about/" title="关于我">关于我</a></li><li class="list-group-item"><span class="badge" title="46人投票">46</span> <a href="http://www.wpmomo.com/theme-usage/" title="使用说明">使用说明</a></li><li class="list-group-item"><span class="badge" title="38人投票">38</span> <a href="http://www.wpmomo.com/momo-1-0/" title="MoMo 1.0">MoMo 1.0</a></li><li class="list-group-item"><span class="badge" title="14人投票">14</span> <a href="http://www.wpmomo.com/bootstrap-carousel.html" title="修改 Bootstrap 的幻灯片轮播效果">修改 Bootstrap 的幻灯片轮播效果</a></li><li class="list-group-item"><span class="badge" title="10人投票">10</span> <a href="http://www.wpmomo.com/menuclick.html" title="解决Bootstrap下拉菜单不可点击">解决Bootstrap下拉菜单不可点击</a></li><li class="list-group-item"><span class="badge" title="8人投票">8</span> <a href="http://www.wpmomo.com/infinite-scroll-manual-trigger.html" title="Infinite Scroll 之手动加载">Infinite Scroll 之手动加载</a></li><li class="list-group-item"><span class="badge" title="8人投票">8</span> <a href="http://www.wpmomo.com/a-plugin-example.html" title="一个 WordPress 插件例子">一个 WordPress 插件例子</a></li><li class="list-group-item"><span class="badge" title="8人投票">8</span> <a href="http://www.wpmomo.com/template-hierarchy.html" title="WordPress 主题结构">WordPress 主题结构</a></li><li class="list-group-item"><span class="badge" title="8人投票">8</span> <a href="http://www.wpmomo.com/get_the_tag_list.html" title="[WordPress 函数] get_the_tag_list() 获取标签列表">[WordPress 函数] get_the_tag_list() 获取标签列表</a></li></div></div><div class="panel panel-danger"><div class="panel-heading"><h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion-dmengrank-2" href="#view-dmengrank-2"><span class="glyphicon glyphicon-fire"></span> 按浏览次数排行的10篇内容</a></h3></div> <div id="view-dmengrank-2" class="panel-collapse collapse in"><li class="list-group-item"><span class="badge" title="11099次浏览">11099</span> <a href="http://www.wpmomo.com/theme/" title="主题介绍">主题介绍</a></li><li class="list-group-item"><span class="badge" title="4064次浏览">4064</span> <a href="http://www.wpmomo.com/theme-usage/" title="使用说明">使用说明</a></li><li class="list-group-item"><span class="badge" title="4041次浏览">4041</span> <a href="http://www.wpmomo.com/menuclick.html" title="解决Bootstrap下拉菜单不可点击">解决Bootstrap下拉菜单不可点击</a></li><li class="list-group-item"><span class="badge" title="3704次浏览">3704</span> <a href="http://www.wpmomo.com/momo-1-0/" title="MoMo 1.0">MoMo 1.0</a></li><li class="list-group-item"><span class="badge" title="3097次浏览">3097</span> <a href="http://www.wpmomo.com/bootstrap-carousel.html" title="修改 Bootstrap 的幻灯片轮播效果">修改 Bootstrap 的幻灯片轮播效果</a></li><li class="list-group-item"><span class="badge" title="2655次浏览">2655</span> <a href="http://www.wpmomo.com/wpmenu.html" title="WordPress自带菜单功能实现多级菜单及自定义样式">WordPress自带菜单功能实现多级菜单及自定义样式</a></li><li class="list-group-item"><span class="badge" title="2474次浏览">2474</span> <a href="http://www.wpmomo.com/about/" title="关于我">关于我</a></li><li class="list-group-item"><span class="badge" title="1640次浏览">1640</span> <a href="http://www.wpmomo.com/register/" title="前台注册">前台注册</a></li><li class="list-group-item"><span class="badge" title="1307次浏览">1307</span> <a href="http://www.wpmomo.com/wordpress-hooks/" title="WordPress 钩子">WordPress 钩子</a></li><li class="list-group-item"><span class="badge" title="1306次浏览">1306</span> <a href="http://www.wpmomo.com/get_the_tag_list.html" title="[WordPress 函数] get_the_tag_list() 获取标签列表">[WordPress 函数] get_the_tag_list() 获取标签列表</a></li></div></div></aside></li>
+    <!-- cached 2016-11-18 19:03:26 --><li id="carousel-4" class="widget widget_carousel"><div class="index-tit"><div class="tit">图卦</div></div>
+    <div id="myCarousel" class="carousel slide">
+        <ol class="carousel-indicators">
+            <li  data-slide-to="0" data-target="#myCarousel"></li>
+            <li  data-slide-to="1" data-target="#myCarousel"></li>
+            <li class="active" data-slide-to="2" data-target="#myCarousel"></li>
+        </ol>
+
+        <div class="carousel-inner">
+
+
+            <div class="item active">
+                <a href="http://www.wpmomo.com/tugua0520.html"><img src="http://www.wpmomo.com/wp-content/themes/MoMo1.0/timthumb.php?src=http://www.wpmomo.com/wp-content/uploads/2015/05/gats-220x200.jpg&h=200&w=360" alt="【图卦】与盖茨做邻居"></a>
+                <div class="carousel-caption">【图卦】与盖茨做邻居</div>
+            </div>
+
+
+
+            <div class="item">
+                <a href="http://www.wpmomo.com/tugua150517.html" ><img src="http://www.wpmomo.com/wp-content/themes/MoMo1.0/timthumb.php?src=http://www.wpmomo.com/wp-content/uploads/2015/05/president-220x200.jpg&h=200&w=360" alt="【图卦】即使你成绩只得了C，你照样有可能当总统"></a>
+                <div class="carousel-caption">【图卦】即使你成绩只得了C，你照样有可能当总统</div>
+            </div>
+
+
+            <div class="item">
+                <a href="http://www.wpmomo.com/tugua150518.html" ><img src="http://www.wpmomo.com/wp-content/themes/MoMo1.0/timthumb.php?src=http://www.wpmomo.com/wp-content/uploads/2015/05/mobile-220x200.jpg&h=200&w=360" alt="【图卦】中国移动，专业粉碎中国梦"></a>
+                <div class="carousel-caption">【图卦】中国移动，专业粉碎中国梦</div>
+            </div>
+
+
+
+        </div>
+
+        <a class="carousel-control left" data-slide="prev" href="#myCarousel" role="button"><span class="glyphicon glyphicon-chevron-left"></span></a>
+
+        <a class="carousel-control right" data-slide="next" href="#myCarousel" role="button"><span class="glyphicon glyphicon-chevron-right"></span></a>
+
+    </div>
+
+</div><!-- #sidebar -->
+
+
+
+
+</div>
+
+
+<span id="nav_prev"><a href="http://www.wpmomo.com/?paged=2" title="第 2 页">‹</a></span>
+
+
+
+</div><!-- #main -->
+
+
+
+{{>footer}}
+
+<div class="btn-group-vertical" id="floatButton"><button type="button" class="btn btn-default" id="goTop" title="去顶部" ><span class="glyphicon glyphicon-arrow-up"></span></button><button type="button" class="btn btn-default" id="refresh" title="刷新" ><span class="glyphicon glyphicon-repeat"></span></button><button type="button" class="btn btn-default" id="pageQrcode" title="本页二维码" ><span class="glyphicon glyphicon-qrcode"></span><img class="qrcode" width="130" height="130"></button><button type="button" class="btn btn-default" id="goBottom" title="去底部" ><span class="glyphicon glyphicon-arrow-down"></span></button></div><script>var float_speed = 800;var fixed_navbar = 1;var fancybox_on = 1;var fancybox_helper_on = 1;var button_txt = '置顶';var button_txt_cancel = '取消置顶';var qrurl = 'http://www.wpmomo.com/';var ajaxurl = 'http:\/\/www.wpmomo.com\/wp-admin\/admin-ajax.php';var isUserLoggedIn = 0;var dmengTracker = {"type":"home","pid":1};var dmengCodePrettify = 0;</script><script>jQuery.dmengready()</script><script type='text/javascript' src='http://www.wpmomo.com/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.51.0-2014.06.20'></script>
+
+</body>
+</html>

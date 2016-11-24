@@ -26,8 +26,8 @@ define(['jquery'], function($){
                                     iframe == 1 ? window.parent.location.href = res.data.url : window.location.href = res.data.url;
                                 });
                             } else {
-                                console.log(res.message);
                                 res.message = typeof res.message != 'undefined' && res.message != '' ? res.message : '操作失败';
+                                res.data = res.data ? res.data : {};
                                 layer.alert(res.message, {shade:[0, 'transparent'], icon:5}, function(index){
                                     if (typeof res.data.url != 'undefined' && res.data.url != '') {
                                         iframe == 1 ? window.parent.location.href = res.data.url : window.location.href = res.data.url;
@@ -379,12 +379,15 @@ define(['jquery'], function($){
     };
 
     var datepicker = function(selector, options){
+        var selector = selector ? selector : '.date';
+        var options = options ? options : {};
         require(['laydate'], function(){
-            var $selector = selector ? selector : '.date';
+
             var format = options.type == 'datetime' ? 'YYYY/MM/DD hh:mm:ss' : 'YYYY/MM/DD';
             var istime = options.type == 'datetime' ? true : false;
             laydate({
                 elem: selector,
+                event:'click',
                 format : options.format ? options.format : format,
                 istime : options.istime ? options.istime : istime
             });
@@ -484,6 +487,27 @@ define(['jquery'], function($){
         });
     };
 
+    var colorPicker = function(selector, options){
+        var $selector = selector ? $(selector) : $('.color-picker');
+        var options = options ? options : {};
+        require(['colpick'], function(){
+            $selector.colpick({
+                layout:'hex',
+                colorScheme:'dark',
+                submit:0,
+                onChange:function(hsb,hex,rgb,el,bySetColor) {
+                    $(el).css('border-color','#'+hex);
+                    var showSymbol = options.showSymbol ? options.showSymbol : true;
+                    var symbol = showSymbol ? '#'+hex : hex;
+                    if(!bySetColor) $(el).val(symbol);
+                }
+            }).keyup(function(){
+                $(this).colpickSetColor(this.value);
+            });
+        })
+
+    };
+
     var formatBytes = function(size, delimiter){
         var delimiter = delimiter ? delimiter : ' ';
         var units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
@@ -541,6 +565,7 @@ define(['jquery'], function($){
         webuploader:webuploader,
         removeFile:removeFile,
         treetable:treetable,
+        colorPicker:colorPicker,
         formatBytes:formatBytes,
         strtotime:strtotime,
         timeFormat:timeFormat

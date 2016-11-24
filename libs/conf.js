@@ -12,6 +12,9 @@ module.exports = {
             idle: 10000
         }
     },
+    app:{
+        root : __dirname
+    },
     security : {
         salt:'shixinke@nodeblog',
         sessionSecret:'shixinke',

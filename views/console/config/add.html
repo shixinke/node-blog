@@ -1,0 +1,92 @@
+<!-- settings changer -->
+{{#section 'css'}}
+<link rel="stylesheet" href="/static/css/compiled/new-user.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/static/js/libs/colpick/1.0.0/colpick.css" type="text/css" media="screen" />
+{{/section}}
+<div class="skins-nav">
+    <a href="#" class="skin first_nav selected">
+        <span class="icon"></span><span class="text">Default</span>
+    </a>
+    <a href="#" class="skin second_nav" data-file="css/skins/dark.css">
+        <span class="icon"></span><span class="text">Dark skin</span>
+    </a>
+</div>
+
+<div class="container-fluid">
+    <div id="pad-wrapper" class="new-user">
+        <div class="row-fluid header">
+            <h3>添加配置项</h3>
+        </div>
+
+        <div class="row-fluid form-wrapper">
+            <!-- left column -->
+            <div class="span9 with-sidebar">
+                <div class="container">
+                    <form class="inline-input" id="config-form" method="post">
+
+                        <div class="span12 field-box">
+
+                        </div>
+
+                        <div class="span12 field-box">
+                            <label>配置项名称:</label>
+                            <input class="span9" type="text" name="title" required title="请输入配置项名称"/>
+                        </div>
+
+                        <div class="span12 field-box">
+                            <label>配置键:</label>
+                            <input class="span9" type="text" name="key" required title="请输入配置项"/>
+                        </div>
+                        <div class="span12 field-box">
+                            <label>分组:</label>
+                            <select name="group" class="span9">
+                                <option value="BASIC">基础设置</option>
+                                <option value="GLOBAL">全局设置</option>
+                                <option value="PAGES">页面设置</option>
+                                <option value="COMMENT">评论设置</option>
+                            </select>
+                        </div>
+                        <div class="span12 field-box">
+                            <label>数据类型:</label>
+                            <select name="datatype" class="span9">
+                                <option value="STRING">字符串</option>
+                                <option value="INT">整型</option>
+                                <option value="FLOAT">浮点型</option>
+                                <option value="BOOLEAN">布尔型</option>
+                                <option value="JSON">JSON</option>
+                            </select>
+                        </div>
+
+                        <div class="span12 field-box">
+                            <label>配置值:</label>
+                            <textarea name="value" class="span9"></textarea>
+                        </div>
+
+
+                        <div class="span12 field-box">
+
+                        </div>
+
+                        <div class="span11 field-box actions">
+                            <input type="submit" class="btn-glow primary" value="添加" />
+                            <input type="reset" class="btn-glow info" value="取消"/>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{#section 'script'}}
+<script type="text/javascript">
+    require(['jquery', 'fn'], function($, fn){
+        fn.colorPicker('#bg-picker');
+        fn.colorPicker('#text-picker');
+        fn.validateForm('config-form');
+    })
+</script>
+{{/section}}

@@ -55,6 +55,17 @@ userModel.delete = async function(id){
     return await User.destroy({where : {uid : id}});
 };
 
+userModel.all = async function(){
+    const data =  await User.findAll({attributes:['uid', 'account', 'nickname', 'avatar'], where : {status : 'ENABLE'}});
+    let datalist = [];
+    if (data) {
+        for(let i=0; i<data.length; i++) {
+            datalist.push(data[i].dataValues);
+        }
+    }
+    return datalist;
+};
+
 userModel.checkLogin = async function(account, password){
     let result;
     result = await User.findOne({where:{account:account}});

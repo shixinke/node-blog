@@ -1,18 +1,26 @@
 const express = require('express');
 const handlebars = require('express-handlebars');
 const path = require('path');
+const ueditor = require("ueditor")
 const bodyParser = require('body-parser');
 const router = require('./libs/router.js');
 const session = require('express-session');
 const conf = require('./libs/conf.js');
+const fs = require('fs');
 const helper = require('./libs/helper.js');
+const registry = require('./libs/registry.js');
+const libUeditor = require('./libs/ueditor.js');
 
 const app = express();
 const backend = express();
 
+const defaultSkin = helper.getItem('default_theme');
+const viewPath = defaultSkin ? path.join(__dirname, 'views', 'home', defaultSkin) : path.join(__dirname, 'views', 'home', 'default');
+const layoutPath = defaultSkin ? 'views/home/'+defaultSkin+'/layouts' : 'views/home/default/layouts';
+const partialsPath = defaultSkin ? 'views/home/'+defaultSkin+'/partials' : 'views/home/default/partials';
 app.set('view engine', 'html');
-app.set('views', path.join(__dirname, 'views'));
-app.engine('html', handlebars({extname:'.html', defaultLayout:'layout.html'}));
+app.set('views', viewPath);
+app.engine('html', handlebars({extname:'.html', layoutsDir: layoutPath, defaultLayout:'layout.html', partialsDir : partialsPath}));
 app.set('view cache', false);
 
 backend.set('view engine', 'html');
@@ -25,6 +33,13 @@ backend.engine('html', handlebars({extname:'.html', layoutsDir:'views/console/la
     },
     eq: function (a, b, options) {
         if (a === b) {
+            return options.fn(this);
+        } else {
+            return options.inverse(this);
+        }
+    },
+    neq: function (a, b, options) {
+        if (a != b) {
             return options.fn(this);
         } else {
             return options.inverse(this);
@@ -80,8 +95,8 @@ backend.use(function(req, res, next){
 */
 app.use('/console', backend);
 
-
-
+app.use("/ueditor/editor", ueditor(path.join(__dirname, 'public'), libUeditor));
+//registerOptions();
 
 router(app, backend);
 

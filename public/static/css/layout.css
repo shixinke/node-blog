@@ -575,3 +575,7 @@ ul.avatar-list li a{position:relative;}
 ul.avatar-list li a:hover{opacity:0.8;text-decoration: none;}
 ul.avatar-list li a i{position:absolute;left:20px;display:none;}
 ul.avatar-list li.checked a i{display:block;}
+
+#color-group .color-input{border:1px solid #ccc;border-right: 30px solid green;}
+.theme-list .theme-item{float:left;background:#f0f0f0;padding:5px;margin:0 1em 1em 0;border-radius:3px;}
+.theme-list .active{background:#b0cdee;}
