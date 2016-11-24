@@ -1,4 +1,5 @@
 const index = require('../routes/index.js');
+const posts = require('../routes/posts.js');
 const consoleIndex = require('../routes/console/index.js');
 const consoleRegister = require('../routes/console/register.js');
 const consoleLogin = require('../routes/console/login.js');
@@ -13,6 +14,14 @@ const consolePages = require('../routes/console/pages.js');
 const consoleTheme = require('../routes/console/theme.js');
 module.exports = function(app, backend){
     app.get('/', index.index);
+    app.get('/index.html', index.index);
+    app.get('/index_:page.html', index.index);
+
+    app.get('/category-(:alias)(_:page)?.html', posts.category);
+    app.get('/tag-(:tag)(_:page)?.html', posts.tag);
+    app.get('/date-(:year)-(:month)(_:page)?.html', posts.date);
+    app.get('/:category/(:alias).html', posts.detail);
+    app.get('/:alias.html', posts.pages);
 
 
     backend.get('/', consoleIndex.index);

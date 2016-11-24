@@ -103,4 +103,20 @@ postsModel.stats = async function(){
     return data;
 };
 
+postsModel.getByAlias = function(alias){
+
+};
+
+postsModel.getByRange = function(year, month){
+
+};
+
+postsModel.getByTag = function(tag){
+
+};
+
+postsModel.getByCategory = function(categoryName){
+
+};
+
 module.exports = postsModel;

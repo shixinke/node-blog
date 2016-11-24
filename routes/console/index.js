@@ -12,7 +12,6 @@ index.index = async function(req, res){
     data.tags = tagStats;
     data.system = os.type()+' '+os.release();
     data.version = 'Node '+process.version;
-    console.log(res.locals.user);
     res.render('index/index', {title : '控制台', data: data, userInfo : req.session.user});
 };
 
