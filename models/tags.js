@@ -83,4 +83,10 @@ tagsModel.delete = async function(id){
     return await Tags.destroy({where : {tag_id : id}});
 };
 
+tagsModel.stats = async function(){
+    const count = await Tags.count();
+    const topTags = await Tags.findAll({attributes:['tag_id', 'tag_alias', 'tag_name', 'items'], order:[['items', 'desc']]});
+    return {count : count, top : topTags};
+};
+
 module.exports = tagsModel;

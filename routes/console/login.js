@@ -29,8 +29,15 @@ login.checkLogin = async function(req, res){
         let userInfo = {};
         userInfo = result.data.dataValues;
         req.session.user = userInfo;
+        res.locals.user = userInfo;
         res.json({code : 200, message : '登录成功', data : {url : '/console/index'}});
     }
+};
+
+login.logout = function(req, res){
+    req.session.user = null;
+    req.session.error = null;
+    res.redirect('/console/login');
 };
 
 

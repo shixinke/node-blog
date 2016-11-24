@@ -90,4 +90,17 @@ postsModel.delete = async function(id){
     return res;
 };
 
+postsModel.stats = async function(){
+    const countRes = await Posts.count({attributes:['type'], where : {status:'PUBLIC'}, group:['type']});
+    const tops = await Posts.findAll({attributes:['posts_id', 'title', 'alias', 'views'], order:[['views', 'DESC']]});
+    const statsRes = await Posts.sum('views');
+    const data = {};
+    for(let i=0; i< countRes.length; i++) {
+        data[countRes[i].type.toLowerCase()] = countRes[i].count;
+    }
+    data.views = statsRes;
+    data.tops = tops;
+    return data;
+};
+
 module.exports = postsModel;

@@ -94,4 +94,8 @@ categoryModel.delete = async function(id){
     return await Category.destroy({where : {category_id : id}});
 };
 
+categoryModel.stats = async function(){
+
+};
+
 module.exports = categoryModel;

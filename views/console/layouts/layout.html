@@ -22,6 +22,7 @@
         <a class="brand" href="/"><img src="/static/img/logo.png" /></a>
 
         <ul class="nav pull-right">
+            <!--
             <li class="hidden-phone">
                 <input class="search" type="text" name="keyword"/>
             </li>
@@ -36,6 +37,7 @@
                         <div class="arrow_border"></div>
                     </div>
                     <div class="body">
+
                         <a href="#" class="close-icon"><i class="icon-remove-sign"></i></a>
                         <div class="notifications">
                             <h3>You have 6 new notifications</h3>
@@ -63,6 +65,7 @@
                                 <a href="#" class="logout">View all notifications</a>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </li>
@@ -75,6 +78,7 @@
                         <div class="arrow"></div>
                         <div class="arrow_border"></div>
                     </div>
+
                     <div class="body">
                         <a href="#" class="close-icon"><i class="icon-remove-sign"></i></a>
                         <div class="messages">
@@ -107,11 +111,13 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </li>
+            -->
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle hidden-phone" data-toggle="dropdown">
-                    账户
+                    {{user.nickname}}
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
@@ -119,13 +125,15 @@
                     <li><a href="/console/profile/password">修改密码</a></li>
                 </ul>
             </li>
+            <!--
             <li class="settings hidden-phone">
                 <a href="/console/profile/index" role="button">
                     <i class="icon-cog"></i>
                 </a>
             </li>
+            -->
             <li class="settings hidden-phone">
-                <a href="/login/logout" role="button">
+                <a href="/console/login/logout" role="button" title="退出登录">
                     <i class="icon-share-alt"></i>
                 </a>
             </li>
@@ -147,12 +155,14 @@
                 <span>控制台</span>
             </a>
         </li>
+        <!--
         <li>
             <a href="/console/stats">
                 <i class="icon-signal"></i>
                 <span>统计信息</span>
             </a>
         </li>
+        -->
         <li>
             <a class="dropdown-toggle" href="#">
                 <i class="icon-group"></i>
@@ -177,12 +187,15 @@
                 <li><a href="/console/theme/index">主题设置</a></li>
             </ul>
         </li>
+        <!--
         <li>
             <a href="/console/comments/index">
                 <i class="icon-picture"></i>
                 <span>评论管理</span>
             </a>
         </li>
+        -->
+        <!--
         <li>
             <a href="/console/attachments/index">
                 <i class="icon-calendar-empty"></i>
@@ -195,6 +208,7 @@
                 <span>模块管理</span>
             </a>
         </li>
+        -->
         <li>
             <a class="dropdown-toggle ui-elements" href="#">
                 <i class="icon-code-fork"></i>
@@ -205,12 +219,14 @@
                 <li><a href="/console/user/index">用户管理</a></li>
             </ul>
         </li>
+        <!--
         <li>
             <a href="/console/plugins/index">
                 <i class="icon-cog"></i>
                 <span>插件管理</span>
             </a>
         </li>
+        -->
     </ul>
 </div>
 <!-- end sidebar -->

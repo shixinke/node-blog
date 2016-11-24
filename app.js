@@ -83,7 +83,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({secret : conf.security.sessionSecret, resave : true, saveUninitialized:false,cookie:{secure:false}}));
 
-/*
 backend.use(function(req, res, next){
     let userInfo = req.session.user;
     if ((!userInfo || !userInfo.uid) && !helper.inArray(req.path, conf.security.withoutLogin)) {
@@ -92,7 +91,11 @@ backend.use(function(req, res, next){
         next();
     }
 });
-*/
+app.use(function(req, res, next){
+    res.locals.user = req.session.user;
+    next();
+});
+
 app.use('/console', backend);
 
 app.use("/ueditor/editor", ueditor(path.join(__dirname, 'public'), libUeditor));

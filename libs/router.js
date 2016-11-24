@@ -17,6 +17,7 @@ module.exports = function(app, backend){
 
     backend.get('/', consoleIndex.index);
     backend.get('/index', consoleIndex.index);
+    backend.get('/login/logout', consoleLogin.logout);
     backend.get('/register', consoleRegister.index);
     backend.post('/register', consoleRegister.register);
     backend.get('/login', consoleLogin.index);
