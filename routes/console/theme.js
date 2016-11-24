@@ -65,67 +65,92 @@ theme.insert = async function(req, res){
         if (!fs.existsSync(tmpDestPath)) {
             exec('mkdir -p '+tmpDestPath);
         }
+        let defaultSkin = helper.getItem('default_theme');
+        defaultSkin = defaultSkin ? defaultSkin : 'default';
         const result = fs.createReadStream(req.file.path).pipe(unzip.Extract({ path: tmpDestPath }));
-        if (!result) {
-            exec('rm -rf tmp/uploads/theme/*');
-            res.json({code : 5003, message : '解压失败'});
-            return;
-        }
-
-        fs.readdir(tmpDestPath, function(err, unarchiveDirs){
-            console.log(err);
-            console.log(unarchiveDirs);
-            if (err) {
-                exec('rm -rf tmp/uploads/theme/*');
-                res.json({code : 5003, message : '目录读取出错'});
-                return;
-            }
-            if (unarchiveDirs.length > 0) {
-                const dirs = fs.readdirSync(path.join(tmpDestPath, unarchiveDirs[0]));
-                if (!helper.inArray('config.json', dirs[0])) {
+        result.on('finish', function(){
+            fs.readdir(tmpDestPath, function(err, files){
+                if (err) {
                     exec('rm -rf tmp/uploads/theme/*');
-                    res.json({code : 5003, message : '缺少配置文件'});
+                    res.json({code : 5003, message : '目录读取出错'});
                     return;
                 }
+                if (files.length > 0) {
+                    const dirs = fs.readdirSync(path.join(tmpDestPath, files[0]));
+                    if (!helper.inArray('config.json', dirs)) {
+                        exec('rm -rf tmp/uploads/theme/*');
+                        res.json({code : 5003, message : '缺少配置文件'});
+                        return;
+                    }
 
-                fs.readFile(path.join(tmpDestPath, dirs[0], 'config.json'), function(err, data){
-                    if (err) {
+                    if (files[0] == defaultSkin) {
                         exec('rm -rf tmp/uploads/theme/*');
-                        res.json({code : 5003, message : '配置文件读取失败'});
+                        res.json({code : 5003, message : '文件夹名称不能为'+defaultSkin});
                         return;
                     }
-                    if(fs.existsSync(path.join('static/img/theme/', dirs[0]))) {
-                        fs.mkdirSync(path.join('static/img/theme/', dirs[0]));
-                    }
-                    const confJson = JSON.parse(data.toString());
-                    if (confJson && confJson.preview) {
-                        exec('mv '+path.join(tmpDestPath, dirs[0], confJson.preview)+' static/img/theme/'+dirs[0]+'/'+confJson.preview, function(err){
-                            if (err) {
-                                exec('rm -rf tmp/uploads/theme/*');
-                                res.json({code : 5003, message : '预览文件移动失败'});
-                                return;
-                            }
-                        });
-                    } else {
+
+                    const viewDirs = fs.readdirSync('views/home/');
+                    if (helper.inArray(files[0], viewDirs)) {
                         exec('rm -rf tmp/uploads/theme/*');
-                        res.json({code : 5003, message : '配置文件格式有误'});
+                        res.json({code : 5003, message : '文件夹名称与现有模板文件名有冲突'});
                         return;
                     }
-                    exec('mv '+path.join(tmpDestPath, dirs[0])+' views/home/', function(err){
+
+                    fs.readFile(path.join(tmpDestPath, files[0], 'config.json'), function(err, data){
                         if (err) {
-                            res.json({code : 5003, message : '模板文件移动失败'});
+                            exec('rm -rf tmp/uploads/theme/*');
+                            res.json({code : 5003, message : '配置文件读取失败'});
                             return;
                         }
-                        exec('rm -rf tmp/uploads/theme/*');
-                        res.json({code : 200, message : '上传成功', data: {url : '/console/theme/index'}});
-                    });
-                });
+                        if(!fs.existsSync(path.join('public/static/img/theme/', files[0]))) {
+                            fs.mkdirSync('public/static/img/theme/'+files[0]);
+                        }
+                        const confJson = JSON.parse(data.toString());
+                        if (confJson && confJson.preview) {
+                            const previewFile = path.join(tmpDestPath, files[0], confJson.preview);
+                            console.log(previewFile);
+                            if (!fs.existsSync(previewFile)) {
+                                res.json({code : 5003, message : '预览文件不存在'});
+                                return;
+                            }
+                            const cmd = 'mv '+previewFile+' public/static/img/theme/'+files[0]+'/'+confJson.preview;
+                            exec(cmd, function(err){
+                                if (err) {
+                                    exec('rm -rf tmp/uploads/theme/*');
+                                    res.json({code : 5003, message : '预览文件移动失败'});
+                                    return;
+                                }
+                                exec('mv '+path.join(tmpDestPath, files[0])+' views/home/', function(err){
+                                    if (err) {
+                                        res.json({code : 5003, message : '模板文件移动失败'});
+                                        return;
+                                    }
+                                    exec('rm -rf tmp/uploads/theme/*');
+                                    res.json({code : 200, message : '上传成功', data: {url : '/console/theme/index'}});
+                                });
+                            });
 
-            } else {
-                exec('rm -rf tmp/uploads/theme/*');
-                res.json({code : 5003, message : '目录读取失败'});
-            }
+                        } else {
+                            exec('rm -rf tmp/uploads/theme/*');
+                            res.json({code : 5003, message : '配置文件格式有误'});
+                            return;
+                        }
+
+                    });
+
+                } else {
+                    exec('rm -rf tmp/uploads/theme/*', function(err, out){
+                        if (err) {
+                            res.json({code : 5003, message : err});
+                        }
+                        res.json({code : 5003, message : '目录读取失败'});
+                    });
+
+                }
+            });
         });
+
+
     });
 };
 
